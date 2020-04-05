@@ -9,3 +9,7 @@ output "db_username" {
 output "db_name" {
   value = aws_db_instance.db.name
 }
+
+output "db_id" {
+  value = aws_db_instance.db.id
+}

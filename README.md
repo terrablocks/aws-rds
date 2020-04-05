@@ -63,6 +63,7 @@ This terraform module will deploy the following services:
 | db_endpoint          | string | Endpoint of database                                                |
 | db_username          | string | Master username of database                                                |
 | db_name          | string | Name of default database created by RDS                                                |
+| db_id          | string | Instance ID of RDS database                                                |
 
 ## Deployment
 - `terraform init` - download plugins required to deploy resources
