@@ -18,7 +18,7 @@ This terraform module will deploy the following services:
 | engine_version                        | string  | Database engine version                                                                                                                                             | 5.7                    | N        |
 | instance_name                         | string  | Name of RDS instance                                                                                                                                                | mysql-db               | N        |
 | random_password                       | boolean | Whether to generate random password                                                                                                                                 | true                   | N        |
-| db_username                           | string  | Master username for RDS instance                                                                                                                                    | admin                  | N        |
+| db_username                           | string  | Master username for RDS instance                                                                                                                                    | dbadmin                  | N        |
 | db_password                           | string  | Master password for RDS instance. **Required if random_password is set to false**                                                                                   |                        | N        |
 | instance_type                         | string  | Instance type for RDS                                                                                                                                               | db.t3.medium           | N        |
 | ca_cert                               | string  | Root CA cert to be used for in-transit encryption.                                                                                                                  | rds-ca-2019            | N        |
@@ -41,7 +41,7 @@ This terraform module will deploy the following services:
 | backup_retention_period               | number  | No. of days to retain automated backups                                                                                                                             | 7                      | N        |
 | backup_window                         | string  | The time period when backup activity must be performed                                                                                                              |                        | N        |
 | copy_tags_to_snapshot                 | boolean | Whether to copy RDS tags to snapshot                                                                                                                                | true                   | N        |
-| monitoring_interval                   | number  | To enable detailed monitoring provide interval in seconds. Valid Values: 0, 1, 5, 10, 15, 30, 60                                                                    | 0                      | N        |
+| monitoring_interval                   | number  | To enable detailed monitoring provide interval in seconds. Valid Values: 1, 5, 10, 15, 30, 60. 0 disables detailed monitoring          | 0                      | N        |
 | cw_log_exports                        | list    | List of logs to be exported to cloudwatch logs                                                                                                                      | []                     | N        |
 | auto_minor_version_upgrade            | boolean | Whether to update minor version of database if available                                                                                                            | true                   | N        |
 | maintenance_window                    | string  | The time period when maintenance activity must be performed                                                                                                         |                        | N        |
@@ -62,6 +62,7 @@ This terraform module will deploy the following services:
 |----------------------|--------|------------------------------------------------------------------|
 | db_endpoint          | string | Endpoint of database                                                |
 | db_username          | string | Master username of database                                                |
+| db_name          | string | Name of default database created by RDS                                                |
 
 ## Deployment
 - `terraform init` - download plugins required to deploy resources

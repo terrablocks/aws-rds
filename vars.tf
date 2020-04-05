@@ -16,7 +16,7 @@ variable "random_password" {
 }
 
 variable "db_username" {
-  default = "admin"
+  default = "dbadmin"
 }
 
 variable "db_password" {
