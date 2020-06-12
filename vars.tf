@@ -1,5 +1,5 @@
 variable "engine" {
-  default = "mysql"
+  default     = "mysql"
   description = "Visit https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html for engine type"
 }
 
@@ -56,7 +56,7 @@ variable "subnet_group_name" {
 }
 
 variable "subnet_ids" {
-  type = list
+  type    = list
   default = []
 }
 
@@ -113,7 +113,7 @@ variable "monitoring_interval" {
 }
 
 variable "cw_log_exports" {
-  type = list
+  type    = list
   default = []
 }
 
@@ -138,7 +138,7 @@ variable "deletion_protection" {
 }
 
 variable "performance_insights_enabled" {
-  default = false
+  default = true
 }
 
 variable "performance_insights_kms_key" {
