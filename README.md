@@ -17,9 +17,9 @@ This terraform module will deploy the following services:
 | engine                                | string  | Database engine (mysql, postgres, mariadb, oracle or sqlserver)                                                                                                     | mysql                  | N        |
 | engine_version                        | string  | Database engine version                                                                                                                                             | 5.7                    | N        |
 | instance_name                         | string  | Name of RDS instance                                                                                                                                                | mysql-db               | N        |
-| random_password                       | boolean | Whether to generate random password                                                                                                                                 | true                   | N        |
+| random_password                       | boolean | Whether to generate random password. This password will be stored in SSM Parameter Store as a `SecureString`                                                                                                                                 | true                   | N        |
 | db_username                           | string  | Master username for RDS instance                                                                                                                                    | dbadmin                  | N        |
-| db_password                           | string  | Master password for RDS instance. **Required if random_password is set to false**                                                                                   |                        | N        |
+| db_password                           | string  | Master password for RDS instance. This password will be stored in SSM Parameter Store as a `SecureString`. **Required if random_password is set to false**                                                                                   |                        | N        |
 | instance_type                         | string  | Instance type for RDS                                                                                                                                               | db.t3.medium           | N        |
 | ca_cert                               | string  | Root CA cert to be used for in-transit encryption.                                                                                                                  | rds-ca-2019            | N        |
 | storage_type                          | string  | Type of storage to be used for RDS instance                                                                                                                         | gp2                    | N        |
@@ -62,6 +62,7 @@ This terraform module will deploy the following services:
 |----------------------|--------|------------------------------------------------------------------|
 | db_endpoint          | string | Endpoint of database                                                |
 | db_username          | string | Master username of database                                                |
+| db_password_ssm      | string | Name of SSM Parameter used for storing database password                                      |
 | db_name          | string | Name of default database created by RDS                                                |
 | db_id          | string | Instance ID of RDS database                                                |
 
