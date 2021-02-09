@@ -56,7 +56,7 @@ variable "subnet_group_name" {
 }
 
 variable "subnet_ids" {
-  type    = list
+  type    = list(any)
   default = []
 }
 
@@ -65,7 +65,7 @@ variable "publicly_accessible" {
 }
 
 variable "sg_ids" {
-  type = list
+  type = list(any)
 }
 
 variable "db_port" {
@@ -113,7 +113,7 @@ variable "monitoring_interval" {
 }
 
 variable "cw_log_exports" {
-  type    = list
+  type    = list(any)
   default = []
 }
 
@@ -170,6 +170,6 @@ variable "snapshot_id" {
 }
 
 variable "tags" {
-  type = map
+  type    = map(any)
   default = {}
 }
