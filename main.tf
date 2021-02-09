@@ -79,6 +79,8 @@ resource "aws_db_instance" "db" {
 
   # to restore from a snapshot
   snapshot_identifier = var.snapshot_id == "" ? null : var.snapshot_id
+
+  tags = var.tags
 }
 
 resource "aws_db_subnet_group" "db_subnet_group" {

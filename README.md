@@ -16,6 +16,14 @@ This terraform module will deploy the following services:
 MIT Licence. See [Licence](LICENCE) for full details.
 
 # Usage Instructions:
+## Example
+```terraform
+module "db" {
+  source = "github.com/terrablocks/aws-rds.git"
+
+  sg_ids = []
+}
+```
 ## Variables
 | Parameter                             | Type    | Description                                                                                                                                                         | Default                | Required |
 |---------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|----------|
@@ -61,6 +69,7 @@ MIT Licence. See [Licence](LICENCE) for full details.
 | ad_domain_id                          | string  | Active Directory domain ID to connect to MS-SQL database. **Required only for MS-SQL Server**                                                                       |                        | N        |
 | timezone                              | string  | Timezone to be set for database. **Required only for MS-SQL Server**                                                                                                |                        | N        |
 | snapshot_id                           | string  | If you want to restore a snapshot or create database from an existing snapshot please provide the snapshot ID                                                       |                        | N        |
+| tags                  | map  | Map of tags to associate with db instance                               |                        | N        |
 
 ## Outputs
 | Parameter            | Type   | Description                                                      |

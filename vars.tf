@@ -168,3 +168,8 @@ variable "timezone" {
 variable "snapshot_id" {
   default = ""
 }
+
+variable "tags" {
+  type = map
+  default = {}
+}
