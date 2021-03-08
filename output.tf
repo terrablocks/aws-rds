@@ -1,19 +1,39 @@
-output "db_endpoint" {
+output "endpoint" {
   value = aws_db_instance.db.endpoint
 }
 
-output "db_username" {
+output "address" {
+  value = aws_db_instance.db.address
+}
+
+output "port" {
+  value = aws_db_instance.db.port
+}
+
+output "username" {
   value = aws_db_instance.db.username
 }
 
-output "db_password_ssm" {
+output "password_ssm" {
   value = aws_ssm_parameter.db_password.name
 }
 
-output "db_name" {
+output "name" {
   value = aws_db_instance.db.name
 }
 
-output "db_id" {
+output "id" {
   value = aws_db_instance.db.id
+}
+
+output "arn" {
+  value = aws_db_instance.db.arn
+}
+
+output "resource_id" {
+  value = aws_db_instance.db.resource_id
+}
+
+output "hosted_zone_id" {
+  value = aws_db_instance.db.hosted_zone_id
 }
