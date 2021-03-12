@@ -69,6 +69,8 @@ resource "aws_db_instance" "db" {
   final_snapshot_identifier = var.final_snapshot_identifier
   deletion_protection       = var.deletion_protection
 
+  iam_database_authentication_enabled = var.enable_iam_auth
+
   # specific to oracle
   character_set_name = length(regexall("oracle-*", var.engine)) > 0 ? var.character_set : null
   license_model      = length(regexall("oracle-*", var.engine)) > 0 ? var.db_license : null

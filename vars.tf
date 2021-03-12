@@ -137,6 +137,10 @@ variable "deletion_protection" {
   default = true
 }
 
+variable "enable_iam_auth" {
+  default = false
+}
+
 variable "performance_insights_enabled" {
   default = true
 }
