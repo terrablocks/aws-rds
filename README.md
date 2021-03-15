@@ -70,6 +70,7 @@ module "db" {
 | ad_domain_id                          | string  | Active Directory domain ID to connect to MS-SQL database. **Required only for MS-SQL Server**                                                                       |                        | N        |
 | timezone                              | string  | Timezone to be set for database. **Required only for MS-SQL Server**                                                                                                |                        | N        |
 | snapshot_id                           | string  | If you want to restore a snapshot or create database from an existing snapshot please provide the snapshot ID                                                       |                        | N        |
+| apply_immediately    | boolean  | Apply database changes immediately instead of waiting until next maintenance windows    | false     | N        |
 | tags                  | map  | Map of tags to associate with db instance                               |                        | N        |
 
 ## Outputs

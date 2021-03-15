@@ -82,6 +82,8 @@ resource "aws_db_instance" "db" {
   # to restore from a snapshot
   snapshot_identifier = var.snapshot_id == "" ? null : var.snapshot_id
 
+  apply_immediately = var.apply_immediately
+
   tags = var.tags
 }
 

@@ -173,6 +173,10 @@ variable "snapshot_id" {
   default = ""
 }
 
+variable "apply_immediately" {
+  default = false
+}
+
 variable "tags" {
   type    = map(any)
   default = {}
