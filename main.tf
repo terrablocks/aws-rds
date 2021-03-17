@@ -89,14 +89,14 @@ resource "aws_db_instance" "db" {
 
 resource "aws_db_subnet_group" "db_subnet_group" {
   count       = var.subnet_group_name == "" ? 1 : 0
-  name        = "db_subnet_group"
+  name        = var.instance_name
   subnet_ids  = var.subnet_ids
   description = "Database subnet group"
 }
 
 resource "aws_iam_role" "rds_role" {
   count = var.monitoring_interval > 0 ? 1 : 0
-  name  = "${var.instance_name}-monitoring-role"
+  name  = "${var.instance_name}-detailed-monitoring-role"
 
   assume_role_policy = <<POLICY
 {
