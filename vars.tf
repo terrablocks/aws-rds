@@ -177,6 +177,10 @@ variable "apply_immediately" {
   default = false
 }
 
+variable "allow_major_version_upgrade" {
+  default = false
+}
+
 variable "tags" {
   type    = map(any)
   default = {}
