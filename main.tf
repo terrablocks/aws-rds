@@ -24,6 +24,10 @@ resource "aws_ssm_parameter" "db_password" {
 }
 
 resource "aws_db_instance" "db" {
+  # checkov:skip=CKV_AWS_157: Multi-AZ deployment is user dependant feature
+  # checkov:skip=CKV_AWS_129: Enabling logs depends on user
+  # checkov:skip=CKV_AWS_118: Enhanced monitoring is user dependant feature
+  # checkov:skip=CKV_AWS_16: Enabling SSE depends on user
   engine             = var.engine
   engine_version     = var.engine_version
   identifier         = var.instance_name
