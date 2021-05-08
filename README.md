@@ -33,8 +33,6 @@ module "db" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| profile | n/a | `any` | n/a | yes |
-| region | n/a | `any` | n/a | yes |
 | engine | Visit https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html for engine type | `string` | `"mysql"` | no |
 | engine_version | Visit https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html for engine version | `string` | `"8.0.23"` | no |
 | instance_name | Name of RDS instance | `string` | `"mysql-db"` | no |
