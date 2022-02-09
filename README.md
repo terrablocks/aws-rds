@@ -88,7 +88,8 @@ module "db" {
 | address | The hostname of the RDS instance |
 | port | Port at which RDS database is listening for traffic |
 | username | Master username of database |
-| password_ssm | Name of SSM Parameter used for storing database password |
+| password_ssm_name | Name of SSM Parameter used for storing database password |
+| password_ssm_arn | ARN of SSM Parameter used for storing database password |
 | name | Name of default database created by RDS |
 | id | ID of RDS database instance |
 | arn | ARN of RDS database instance |
