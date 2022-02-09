@@ -18,9 +18,14 @@ output "username" {
   description = "Master username of database"
 }
 
-output "password_ssm" {
+output "password_ssm_name" {
   value       = aws_ssm_parameter.db_password.name
   description = "Name of SSM Parameter used for storing database password"
+}
+
+output "password_ssm_arn" {
+  value       = aws_ssm_parameter.db_password.arn
+  description = "ARN of SSM Parameter used for storing database password"
 }
 
 output "name" {
