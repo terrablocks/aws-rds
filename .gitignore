@@ -31,3 +31,4 @@ override.tf.json
 provider.tf
 header.tf
 *.sh
+*.zip

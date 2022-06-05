@@ -18,16 +18,6 @@ output "username" {
   description = "Master username of database"
 }
 
-output "password_ssm_name" {
-  value       = aws_ssm_parameter.db_password.name
-  description = "Name of SSM Parameter used for storing database password"
-}
-
-output "password_ssm_arn" {
-  value       = aws_ssm_parameter.db_password.arn
-  description = "ARN of SSM Parameter used for storing database password"
-}
-
 output "name" {
   value       = aws_db_instance.db.name
   description = "Name of default database created by RDS"
@@ -51,4 +41,44 @@ output "resource_id" {
 output "hosted_zone_id" {
   value       = aws_db_instance.db.hosted_zone_id
   description = "Canonical hosted zone ID of RDS database instance"
+}
+
+output "password_ssm_name" {
+  value       = var.use_ssm ? join(",", aws_ssm_parameter.db.*.name) : null
+  description = "Name of SSM Parameter used for storing database password. **Note:** Available only if `use_ssm` is set to true"
+}
+
+output "password_ssm_arn" {
+  value       = var.use_ssm ? join(",", aws_ssm_parameter.db.*.arn) : null
+  description = "ARN of SSM Parameter used for storing database password. **Note:** Available only if `use_ssm` is set to true"
+}
+
+output "password_secretsmanager_arn" {
+  value       = var.use_secretsmanager ? join(",", module.db_sm.*.arn) : null
+  description = "ARN of Secrets Manager used for storing database password. **Note:** Available only if `use_secretsmanager` is set to true"
+}
+
+output "secretsmanager_lambda_name" {
+  value       = var.use_secretsmanager && var.secretsmanager_enable_auto_rotation ? join(",", aws_lambda_function.secretsmanager.*.name) : null
+  description = "Name of lambda function created to rotate database credentials automatically. **Note:** Available only if `use_secretsmanager` and `secretsmanager_enable_auto_rotation` is set to true"
+}
+
+output "secretsmanager_lambda_arn" {
+  value       = var.use_secretsmanager && var.secretsmanager_enable_auto_rotation ? join(",", aws_lambda_function.secretsmanager.*.arn) : null
+  description = "ARN of lambda function created to rotate database credentials automatically. **Note:** Available only if `use_secretsmanager` and `secretsmanager_enable_auto_rotation` is set to true"
+}
+
+output "secretsmanager_lambda_sg_ids" {
+  value       = var.use_secretsmanager && var.secretsmanager_enable_auto_rotation ? local.secretsmanager_lambda_sg_ids : null
+  description = "ID of security groups attached to the rotator lambda function. **Note:** Available only if `use_secretsmanager` and `secretsmanager_enable_auto_rotation` is set to true"
+}
+
+output "secretsmanager_lambda_role_name" {
+  value       = var.use_secretsmanager && var.secretsmanager_enable_auto_rotation ? join(",", aws_iam_role.lambda_secretsmanager.*.name) : null
+  description = "Name of IAM role attached to the rotator lambda function. **Note:** Available only if `use_secretsmanager` and `secretsmanager_enable_auto_rotation` is set to true"
+}
+
+output "secretsmanager_lambda_role_arn" {
+  value       = var.use_secretsmanager && var.secretsmanager_enable_auto_rotation ? join(",", aws_iam_role.lambda_secretsmanager.*.arn) : null
+  description = "ARN of IAM role attached to the rotator lambda function. **Note:** Available only if `use_secretsmanager` and `secretsmanager_enable_auto_rotation` is set to true"
 }
