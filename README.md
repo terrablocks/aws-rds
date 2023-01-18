@@ -2,7 +2,7 @@
 
 Supports: MySQL, Postgres, MariaDB, Oracle & MS-SQL
 
-![License](https://img.shields.io/github/license/terrablocks/aws-rds?style=for-the-badge) ![Tests](https://img.shields.io/github/workflow/status/terrablocks/aws-rds/tests/master?label=Test&style=for-the-badge) ![Checkov](https://img.shields.io/github/workflow/status/terrablocks/aws-rds/checkov/master?label=Checkov&style=for-the-badge) ![Commit](https://img.shields.io/github/last-commit/terrablocks/aws-rds?style=for-the-badge) ![Release](https://img.shields.io/github/v/release/terrablocks/aws-rds?style=for-the-badge)
+![License](https://img.shields.io/github/license/terrablocks/aws-rds?style=for-the-badge) ![Tests](https://img.shields.io/github/actions/workflow/status/terrablocks/aws-rds/tests.yml?branch=main&label=Test&style=for-the-badge) ![Checkov](https://img.shields.io/github/actions/workflow/status/terrablocks/aws-rds/checkov.yml?branch=main&label=Checkov&style=for-the-badge) ![Commit](https://img.shields.io/github/last-commit/terrablocks/aws-rds?style=for-the-badge) ![Release](https://img.shields.io/github/v/release/terrablocks/aws-rds?style=for-the-badge)
 
 This terraform module will deploy the following services:
 - RDS
@@ -18,7 +18,7 @@ This terraform module will deploy the following services:
 module "db" {
   source = "github.com/terrablocks/aws-rds.git"
 
-  sg_ids = ["sg-xxxx"]
+  db_subnet_ids     = ["subnet-xxxxxxxxxxx"]
 }
 ```
 
