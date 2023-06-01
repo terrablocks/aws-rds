@@ -90,7 +90,7 @@ module "db" {
 | username | Master username of database |
 | password_ssm_name | Name of SSM Parameter used for storing database password |
 | password_ssm_arn | ARN of SSM Parameter used for storing database password |
-| name | Name of default database created by RDS |
+| db_name | Name of default database created by RDS |
 | id | ID of RDS database instance |
 | arn | ARN of RDS database instance |
 | resource_id | Resource ID of RDS database instance |

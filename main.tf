@@ -49,7 +49,7 @@ resource "aws_db_instance" "db" {
   vpc_security_group_ids = var.sg_ids
   port                   = var.db_port
 
-  name                 = var.db_name == "" || length(regexall("oracle-*", var.engine)) > 0 || length(regexall("sqlserver-*", var.engine)) > 0 ? null : var.db_name
+  db_name              = var.db_name == "" || length(regexall("oracle-*", var.engine)) > 0 || length(regexall("sqlserver-*", var.engine)) > 0 ? null : var.db_name
   parameter_group_name = var.parameter_group_name
   option_group_name    = var.option_group_name
 

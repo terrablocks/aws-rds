@@ -28,8 +28,8 @@ output "password_ssm_arn" {
   description = "ARN of SSM Parameter used for storing database password"
 }
 
-output "name" {
-  value       = aws_db_instance.db.name
+output "db_name" {
+  value       = aws_db_instance.db.db_name
   description = "Name of default database created by RDS"
 }
 
